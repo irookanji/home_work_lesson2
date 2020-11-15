@@ -1,4 +1,4 @@
-# My homework for QA GURU lesson2
+# Homework for QA GURU lesson2
 
 This is Java automation test homework (FormsFillsTests.java file).
 
