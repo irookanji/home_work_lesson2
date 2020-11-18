@@ -1,7 +1,7 @@
 # Homeworks for QA GURU 
 
 ## lesson2
-This is Java automation test homework (FormsFillsTests.java file).
+This is a Java automation testing homework (FormsFillsTests.java file).
 
 Automation practice form on [demoqa.com](https://demoqa.com/automation-practice-form)
 
@@ -14,8 +14,10 @@ Automation practice form on [demoqa.com](https://demoqa.com/automation-practice-
 ## lesson3
 
 ```bash
-1. Есть ли разница между $("h1 div"); и $("h1").$("div"); - может ли привести к тому что, поиск найдёт разные элементы?
-2. На страничке "Вклады" (https://alfabank.ru/make-money/) перейти на подстраничку "Депозиты" (https://alfabank.ru/make-money/deposits/)
+1. Есть ли разница между $("h1 div"); и $("h1").$("div"); - может ли привести к тому что, 
+поиск найдёт разные элементы?
+2. На страничке "Вклады" (https://alfabank.ru/make-money/) перейти на подстраничку "Депозиты" 
+(https://alfabank.ru/make-money/deposits/)
 - Перейти по линку на "Архивные депозиты" (https://alfabank.ru/make-money/archive/)
 - Убедиться, что представлено ровно пять архивных депозитов
 Подсказка Изучите ассерты (should) для коллекций элементов (ElementsCollection)
