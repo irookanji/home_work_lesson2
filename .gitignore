@@ -4,3 +4,6 @@ build
 out
 *.ipr
 *.iws
+gradlew
+gradlew.bat
+gradle/wrapper

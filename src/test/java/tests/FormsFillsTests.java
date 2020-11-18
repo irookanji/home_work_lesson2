@@ -2,7 +2,6 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -17,13 +16,9 @@ public class FormsFillsTests {
         Configuration.startMaximized = true;
     }
 
-    @BeforeEach
-    public void openBrowser(){
-        open("https://demoqa.com/automation-practice-form");
-    }
-
     @Test
     void fillAllFormTest() {
+        open("https://demoqa.com/automation-practice-form");
         String name = "John",
                 lastname = "Doe",
                 email = "john@doe.com",
@@ -31,7 +26,7 @@ public class FormsFillsTests {
                 gender = "Male",
                 hobbies = "Music",
                 current_address = "Storgatan, 7";
-        File file = new File("src/test/java/helpers/Cover.jpg");
+        File file = new File("src/test/resources/Cover.jpg");
 
         // Requisites
         $("#firstName").val(name);
