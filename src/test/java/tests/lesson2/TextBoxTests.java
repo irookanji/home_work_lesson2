@@ -1,4 +1,4 @@
-package tests;
+package tests.lesson2;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -30,7 +30,6 @@ public class TextBoxTests {
                 "Email:daSilva@company.com\n" +
                 "Current Address :Oslo\n" +
                 "Permananet Address :Street 1"));
-        System.out.printf("");
     }
 
     @Test
@@ -77,6 +76,5 @@ public class TextBoxTests {
 
         $("#userEmail").shouldHave(cssClass("field-error"));
 
-        System.out.printf("");
     }
 }
