@@ -7,3 +7,4 @@ out
 gradlew
 gradlew.bat
 gradle/wrapper
+debug.log
