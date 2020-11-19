@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -30,18 +31,62 @@ public class AlfabankTests {
         // Check that Deposits = 5
         $("#filter").$$("[data-widget-name=CatalogCard]").shouldHaveSize(5);
 
-
-        sleep(5000);
-
     }
 
     @Test
-    void goToDepositsThenToInsuranceTest() {
+    void usingSiblingXpathTest() {
         open("https://alfabank.ru");
 
         // Go to "Вклады" tab
         $$(byText("Вклады")).find(visible).click();
 
+        // Go to "Страхование вкалдов" tab используя Sibling
+        $x("//button[@data-test-id='tabs-list-tabTitle-0']/following-sibling::*[1]"
+        ).click();
+
+        // Assert
+        $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
+        $("[data-widget-uid=c755ade9e2] span")
+                .shouldHave(text("Альфа-Банк является участником системы обязательного страхования вкладов"));
+
+
+    }
+
+    @Test
+    void usingPrecendingXpathTest() {
+        open("https://alfabank.ru");
+
+        // Go to "Вклады" tab
+        $$(byText("Вклады")).find(visible).click();
+
+        // Go to "Страхование вкалдов" tab используя Preceding
+        $x("//button[@data-test-id='tabs-list-tabTitle-2']/preceding::button[1]").click();
+
+        // Assert
+        $("[data-widget-uid=ed114143b4] span")
+                .shouldHave(text("Страхованию подлежат"));
+
+    }
+
+    @Test
+    void usingParentXpathTest() {
+        open("https://alfabank.ru");
+
+        // Go to "Вклады" tab
+        $$(byText("Вклады")).find(visible).click();
+
+        // Go to "Страхование вкалдов" tab используя Parent
+        $x("//*[contains(text(),'Страхование вкладов')]//parent::button[1]").click();
+
+        // Assert
+        $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
+
+        sleep(5000);
+    }
+
+    @Test
+    void usingClosestXpathTest() {
+        assert true;
     }
 
 }
