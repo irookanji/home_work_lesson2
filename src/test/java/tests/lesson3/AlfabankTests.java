@@ -90,6 +90,9 @@ public class AlfabankTests {
 
         // Go to "Страхование вкалдов" tab используя Closest
         $x("//*[contains(text(),'Страхование вкладов')]").closest("button").click();
+
+        // Assert
+        $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
     }
 
 }
