@@ -34,7 +34,7 @@ public class AlfabankTests {
     }
 
     @Test
-    void usingSiblingXpathTest() {
+    void siblingXpathTest() {
         open("https://alfabank.ru");
 
         // Go to "Вклады" tab
@@ -49,11 +49,10 @@ public class AlfabankTests {
         $("[data-widget-uid=c755ade9e2] span")
                 .shouldHave(text("Альфа-Банк является участником системы обязательного страхования вкладов"));
 
-
     }
 
     @Test
-    void usingPrecendingXpathTest() {
+    void precendingXpathTest() {
         open("https://alfabank.ru");
 
         // Go to "Вклады" tab
@@ -69,7 +68,7 @@ public class AlfabankTests {
     }
 
     @Test
-    void usingParentXpathTest() {
+    void parentXpathTest() {
         open("https://alfabank.ru");
 
         // Go to "Вклады" tab
@@ -80,13 +79,17 @@ public class AlfabankTests {
 
         // Assert
         $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
-
-        sleep(5000);
     }
 
     @Test
-    void usingClosestXpathTest() {
-        assert true;
+    void closestXpathTest() {
+        open("https://alfabank.ru");
+
+        // Go to "Вклады" tab
+        $$(byText("Вклады")).find(visible).click();
+
+        // Go to "Страхование вкалдов" tab используя Closest
+        $x("//*[contains(text(),'Страхование вкладов')]").closest("button").click();
     }
 
 }
