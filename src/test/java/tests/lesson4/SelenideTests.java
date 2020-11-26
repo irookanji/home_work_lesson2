@@ -14,7 +14,6 @@ public class SelenideTests {
 
     @BeforeAll
     static public void config() {
-
         Configuration.startMaximized = true;
     }
 
