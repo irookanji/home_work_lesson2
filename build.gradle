@@ -25,6 +25,7 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.7.0"
     compile("org.junit.jupiter:junit-jupiter-params:5.7.0")
     compile("io.qameta.allure:allure-selenide:2.13.6")
+    runtime group: 'org.aspectj', name: 'aspectjweaver', version: '1.6.10'
 }
 
 test {

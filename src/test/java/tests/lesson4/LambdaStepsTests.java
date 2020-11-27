@@ -25,7 +25,7 @@ public class LambdaStepsTests {
         step("Open main page", () -> {
             final String url = "https://github.com";
             open(url);
-            Allure.link("Тестинг", url);
+            Allure.link("Testing", url);
         });
         step("Login with email & password", () -> {
             $x("//a[@href='/login']").click();
