@@ -1,4 +1,4 @@
-package tests.lesson4;
+package tests.lesson5;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
