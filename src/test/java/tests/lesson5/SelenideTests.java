@@ -28,9 +28,7 @@ public class SelenideTests {
         $x("//input[@type='submit']").click();
 
         // Search for repository
-        $(".header-search-input").click();
-        $(".header-search-input").sendKeys("irookanji/qa_guru_home_works");
-        $(".header-search-input").submit();
+        $(".header-search-input").setValue("irookanji/qa_guru_home_works").pressEnter();
         $x("//a[@href='/irookanji/qa_guru_home_works']").click();
 
         // Go to "Issues" tab
@@ -50,7 +48,7 @@ public class SelenideTests {
         $x("//button[contains(text(),'Submit new issue')]").click();
 
         // Assert
-        $x("//span[@class='js-issue-title']").shouldHave(Condition.text("Some test Issue"));
+        $x("//span[@class='js-issue-title']").shouldHave(text("Some test Issue"));
 
     }
 
