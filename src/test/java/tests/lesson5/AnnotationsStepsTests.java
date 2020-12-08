@@ -68,7 +68,7 @@ public class AnnotationsStepsTests {
             $x("//input[@type='submit']").click();
         }
 
-        @Step("Searching for repository ${name}")
+        @Step("Searching for repository {name}")
         public void searchForRepository(final String name) {
             $(".header-search-input").click();
             $(".header-search-input").sendKeys(name);
