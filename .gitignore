@@ -9,4 +9,4 @@ gradlew.bat
 gradle/wrapper
 debug.log
 credentials.properties
-!/.allure/
+.allure/
