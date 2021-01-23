@@ -16,7 +16,7 @@ public class GoogleTests {
         Configuration.browser = "firefox";
         Configuration.startMaximized = true;
         // Открыть google
-        open("https://google.com");
+        open("https://bing.com");
 
         // Ввести Selenide в поиск
         $(byName("q")).setValue("Selenide").pressEnter();

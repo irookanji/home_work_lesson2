@@ -23,7 +23,7 @@ public class LambdaStepsTests {
     @Test
     void checkCreationIssueTest() {
         step("Open main page", () -> {
-            final String url = "https://github.com";
+            final String url = "https://rgithub.com";
             open(url);
             Allure.link("Testing", url);
         });

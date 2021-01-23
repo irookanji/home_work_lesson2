@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AlfabankTests {
+public class AlfaBankTests {
     @BeforeAll
     static public void config() {
         Configuration.startMaximized = true;
@@ -41,8 +41,7 @@ public class AlfabankTests {
         $$(byText("Вклады")).find(visible).click();
 
         // Go to "Страхование вкалдов" tab используя Sibling
-        $x("//button[@data-test-id='tabs-list-tabTitle-0']/following-sibling::*[1]"
-        ).click();
+        $x("//button[@data-test-id='tabs-list-tabTitle-0']/following-sibling::*[1]").click();
 
         // Assert
         $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
@@ -75,7 +74,9 @@ public class AlfabankTests {
         $$(byText("Вклады")).find(visible).click();
 
         // Go to "Страхование вкалдов" tab используя Parent
-        $x("//*[contains(text(),'Страхование вкладов')]//parent::button[1]").click();
+        // todo
+//        $x("//*[contains(text(),'Страхование вкладов')]//parent::button[1]").click();
+        $(byText("Страхование вкладов")).parent().$("button", 1).click();
 
         // Assert
         $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
