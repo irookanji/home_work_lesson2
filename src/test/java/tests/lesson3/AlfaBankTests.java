@@ -2,6 +2,7 @@ package tests.lesson3;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -16,6 +17,7 @@ public class AlfaBankTests {
     }
 
     @Test
+    @DisplayName("Check deposit test")
     void checkDepositTest() {
         open("https://alfabank.ru/make-money/");
 
@@ -34,6 +36,7 @@ public class AlfaBankTests {
     }
 
     @Test
+    @DisplayName("Open tab using Sibling locator")
     void siblingLocatorTest() {
         open("https://alfabank.ru/make-money/");
         $("[data-test-id=tabs-list-tabTitle-0]").sibling(0).scrollIntoView(true).click();
@@ -44,6 +47,7 @@ public class AlfaBankTests {
     }
 
     @Test
+    @DisplayName("Open tab using Preceding locator")
     void precedingAndParentLocatorsTest() {
         open("https://alfabank.ru/make-money/");
         $("[data-test-id=tabs-list-tabTitle-2]").preceding(0).scrollIntoView(true).click();
@@ -54,6 +58,7 @@ public class AlfaBankTests {
 
 
     @Test
+    @DisplayName("Open tab using Closest locator")
     void closestLocatorTest() {
         open("https://alfabank.ru");
 
