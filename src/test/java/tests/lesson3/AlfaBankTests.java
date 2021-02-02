@@ -34,66 +34,34 @@ public class AlfaBankTests {
     }
 
     @Test
-    void siblingXpathTest() {
-        open("https://alfabank.ru");
-
-        // Go to "Вклады" tab
-        $$(byText("Вклады")).find(visible).click();
-
-        // Go to "Страхование вкалдов" tab используя Sibling
-        $x("//button[@data-test-id='tabs-list-tabTitle-0']/following-sibling::*[1]").click();
+    void siblingLocatorTest() {
+        open("https://alfabank.ru/make-money/");
+        $("[data-test-id=tabs-list-tabTitle-0]").sibling(0).scrollIntoView(true).click();
 
         // Assert
-        $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
-        $("[data-widget-uid=c755ade9e2] span")
-                .shouldHave(text("Альфа-Банк является участником системы обязательного страхования вкладов"));
+        $("[data-test-id=accordion-header-0]").shouldHave(text("Альфа-Банк является участником системы обязательного страхования вкладов"));
 
     }
 
     @Test
-    void precendingXpathTest() {
-        open("https://alfabank.ru");
-
-        // Go to "Вклады" tab
-        $$(byText("Вклады")).find(visible).click();
-
-        // Go to "Страхование вкалдов" tab используя Preceding
-        $x("//button[@data-test-id='tabs-list-tabTitle-2']/preceding::button[1]").click();
+    void precedingAndParentLocatorsTest() {
+        open("https://alfabank.ru/make-money/");
+        $("[data-test-id=tabs-list-tabTitle-2]").preceding(0).scrollIntoView(true).click();
 
         // Assert
-        $("[data-widget-uid=ed114143b4] span")
-                .shouldHave(text("Страхованию подлежат"));
-
+        $("[data-test-id=accordion-item-0]").parent().shouldHave(text("Страхованию подлежат"));
     }
 
-    @Test
-    void parentXpathTest() {
-        open("https://alfabank.ru");
-
-        // Go to "Вклады" tab
-        $$(byText("Вклады")).find(visible).click();
-
-        // Go to "Страхование вкалдов" tab используя Parent
-        // todo
-//        $x("//*[contains(text(),'Страхование вкладов')]//parent::button[1]").click();
-        $(byText("Страхование вкладов")).parent().$("button", 1).click();
-
-        // Assert
-        $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
-    }
 
     @Test
-    void closestXpathTest() {
+    void closestLocatorTest() {
         open("https://alfabank.ru");
 
-        // Go to "Вклады" tab
         $$(byText("Вклады")).find(visible).click();
-
-        // Go to "Страхование вкалдов" tab используя Closest
         $x("//*[contains(text(),'Страхование вкладов')]").closest("button").click();
 
         // Assert
-        $$x("//div[@class='a1Etq03']").shouldHaveSize(4);
+        $$x("//div[@class='a1Etq03']").shouldHaveSize(8);
     }
 
 }
